@@ -437,8 +437,12 @@ class cHosterGui:
                     # sous-titres ?
                     if len(aLink) > 2:
                         oPlayer.AddSubtitles(aLink[2])
-
-                    return oPlayer.run(oGuiElement, aLink[1])
+                    if sCat == '9999':
+                        import xbmcplugin
+                        xbmcplugin.setFluxPlayer((oInputParameterHandler.getValue('sourceName'), sHosterIdentifier, 'Todo sLang', aLink[1]))
+                        return True
+                    else:
+                        return oPlayer.run(oGuiElement, aLink[1])
 
             oDialog.VSerror(self.ADDON.VSlang(30020))
             return
