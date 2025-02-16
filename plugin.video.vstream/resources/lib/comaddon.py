@@ -475,7 +475,7 @@ class siteManager:
             import os.path
             path_file = os.path.realpath(os.path.abspath(__file__))
             parent_dir = os.path.dirname(os.path.dirname(path_file))
-            self.defaultPath = parent_dir + '\\sites.json'
+            self.defaultPath = parent_dir + '/sites.json'
             path = self.defaultPath
         else:
             path = VSPath('special://home/userdata/profiles/' + name + '/addon_data/plugin.video.vstream/sites.json')

@@ -129,17 +129,10 @@ class cRechercheHandler:
             sFolder = "special://home/addons/plugin.video.vstream/resources/sites"
             sFolder = sFolder.replace('\\', '/')
         else:
-            #specific stremIO
             import os
-            # Obtenir le chemin du répertoire actuel
-            #path = os.getcwd()
-            #path += '\\venom-xbmc-addons\\plugin.video.vstream\\resources\\sites'
-            # Récupère le chemin absolu du script courant
             script_path = os.path.abspath(__file__)
-
             # Récupère le répertoire contenant ce script
             script_dir = os.path.dirname(script_path)
-
             # Remonte de deux niveaux et ajoute le dossier "sites"
             path = os.path.abspath(os.path.join(script_dir, '../../sites'))
             sFolder = path
