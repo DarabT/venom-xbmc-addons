@@ -2,7 +2,7 @@
     "sites": {
         "_1seriestreaming": {
             "label": "1 SerieStreaming",
-            "active": "True",
+            "active": "False",
             "url": "https://app.1seriestreaming.io/"
         },
         "adkami_com": {
@@ -13,6 +13,11 @@
         "alldebrid": {
             "label": "AllDebrid",
             "active": "True"
+        },
+        "animesama": {
+            "label": "Anime Sama",
+            "active": "True",
+            "url": "https://anime-sama.fr/"
         },
         "animeultime": {
             "label": "Anime Ultime",
@@ -52,12 +57,12 @@
         "coflix": {
             "label": "Coflix",
             "active": "True",
-            "url": "https://coflix.moe/"
+            "url": "https://coflix.mov/"
         },
         "cpasmieux": {
             "label": "Cpasmieux",
             "active": "True",
-            "url": "https://cpasmieux.is/"
+            "url": "https://www.cpasmieux.ad/"
         },
         "daddyhd": {
             "label": "DaddyHD",
@@ -67,12 +72,22 @@
         "darkiworld": {
             "label": "darkiworld",
             "active": "True",
-            "url": "https://darkiworld3.com/"
+            "url": "https://darkiworld7.com/"
         },
         "debrid_link": {
             "label": "Debrid Link",
             "active": "True",
             "url": "https://debrid-link.fr"
+        },
+        "direct_stream": {
+            "label": "direct-streamfr",
+            "active": "True",
+            "url": "https://direct-streamfr.live/"
+        },
+        "dnspython": {
+            "label": "DNS Python",
+            "active": "True",
+            "url": "['1.1.1.1', '2606:4700:4700::1111', '80.67.169.12', '2001:910:800::12', '80.67.169.40', '2001:910:800::40']"
         },
         "docu_fr": {
             "label": "Docu Fr",
@@ -92,9 +107,9 @@
         "elitegol": {
             "label": "Elitegol",
             "active": "True",
-            "url": "https://remontadatv.ru/",
+            "url": "https://kakarotfoot.ru/",
             "site_info": "https://elitegol.lat/",
-            "url_link": "plyz/3"
+            "url_link": "goku/3"
         },
         "extreme_down": {
             "label": "ExtremeDown",
@@ -138,7 +153,7 @@
             "label": "French-stream",
             "active": "True",
             "site_info": "https://fstream.one/",
-            "url": "https://fsmirror03.lol/"
+            "url": "https://mirror66.lol/"
         },
         "french_stream_lol": {
             "label": "French-stream-lol",
@@ -190,8 +205,8 @@
         },
         "livetv": {
             "label": "Live TV",
-            "active": "False",
-            "url": "https://livetv.sx/"
+            "active": "True",
+            "url": "https://livetv822.me/"
         },
         "monstream": {
             "label": "Mon Stream",
@@ -271,7 +286,7 @@
         },
         "streamizseries": {
             "label": "Streamiz S\u00e9ries",
-            "active": "True",
+            "active": "False",
             "cloudflare": "False",
             "url": "https://streamizseries.net/"
         },
@@ -308,7 +323,7 @@
         },
         "voiranime": {
             "label": "voiranime",
-            "active": "True",
+            "active": "False",
             "cloudflare": "True",
             "url": "https://v6.voiranime.com/"
         },
@@ -333,7 +348,7 @@
             "active": "True",
             "cloudflare": "False",
             "site_info": "https://wiflix-vraie-adresse.com/",
-            "url": "https://wiflix-pro.site/"
+            "url": "https://wiflix-max.top/"
         },
         "wilifilm": {
             "label": "Wilifilm",
