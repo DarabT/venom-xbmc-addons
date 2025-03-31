@@ -28,6 +28,11 @@ class cHosterGui:
         movieUrl = oInputParameterHandler.getValue('movieUrl')
         movieFunc = oInputParameterHandler.getValue('movieFunc')
         sLang = oInputParameterHandler.getValue('sLang')
+        if not sLang:
+            import re
+            match = re.findall(r'\((.*?)\)', oHoster.getDisplayName())
+            if match:
+                sLang = match[-1]  # Prend le dernier élément trouvé
         sRes = oInputParameterHandler.getValue('sRes')
         sYear = oInputParameterHandler.getValue('sYear')
         sDesc = oInputParameterHandler.getValue('sDesc')
@@ -396,6 +401,7 @@ class cHosterGui:
         siteUrl = oInputParameterHandler.getValue('siteUrl')
         sCat = oInputParameterHandler.getValue('sCat')
         sMeta = oInputParameterHandler.getValue('sMeta')
+        sLang = oInputParameterHandler.getValue('sLang')
 
         if not sTitle:
             sTitle = sFileName
@@ -448,7 +454,7 @@ class cHosterGui:
                         oPlayer.AddSubtitles(aLink[2])
                     if sCat == '9999':
                         import xbmcplugin
-                        xbmcplugin.setFluxPlayer((oInputParameterHandler.getValue('sourceName'), sHosterIdentifier, 'Todo sLang', oInputParameterHandler.getValue('sFileName'), aLink[1]))
+                        xbmcplugin.setFluxPlayer((oInputParameterHandler.getValue('sourceName'), sHosterIdentifier, sLang if sLang else 'Lang not found', sFileName, aLink[1]))
                         return True
                     else:
                         return oPlayer.run(oGuiElement, aLink[1])
