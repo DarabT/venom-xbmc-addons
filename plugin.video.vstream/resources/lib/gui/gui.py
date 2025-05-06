@@ -772,7 +772,14 @@ class cGui:
 
         sParams = oOutputParameterHandler.getParameterAsUri()
         sTest = '?site=%s&function=%s&%s' % ('globalSearch', 'globalSearch', sParams)
-        sys.argv[2] = sTest
+        try:
+            # specific vStreamIO
+            import addonPythonScript.Thread_argv as Thread_argv
+            argv = Thread_argv.get_custom_argv()
+        except ImportError:
+            argv = sys.argv
+
+        argv[2] = sTest
         sTest = sPluginPath + sTest
 
         # Si lancé depuis la page Home de Kodi, il faut d'abord en sortir pour lancer la recherche

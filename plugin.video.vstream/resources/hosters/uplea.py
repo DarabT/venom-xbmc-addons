@@ -20,7 +20,13 @@ class cHoster(iHoster):
         iHoster.__init__(self, 'uplea', 'Uplea', 'violet')
 
     def getMediaLink(self):
-        if 'site=cDownload&function' not in sys.argv[2]:
+        try:
+            # specific vStreamIO
+            import addonPythonScript.Thread_argv as Thread_argv
+            argv = Thread_argv.get_custom_argv()
+        except ImportError:
+            argv = sys.argv
+        if 'site=cDownload&function' not in argv[2]:
             oDialog = dialog().VSok("ATTENTION, Pas de streaming sans premium\n" +
                                     "Pour voir le film passer par l'option 'Télécharger et Lire' du menu contextuel.")
             return False, False

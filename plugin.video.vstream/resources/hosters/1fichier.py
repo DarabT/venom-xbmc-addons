@@ -33,8 +33,13 @@ class cHoster(iHoster):
     def getMediaLink(self):
         self.oPremiumHandler = cPremiumHandler(self.getPluginIdentifier())
         print(self.oPremiumHandler.isPremiumModeAvailable())
-
-        if ('site=cDownload&function' not in sys.argv[2]) and not (self.oPremiumHandler.isPremiumModeAvailable()):
+        try:
+            # specific vStreamIO
+            import addonPythonScript.Thread_argv as Thread_argv
+            argv = Thread_argv.get_custom_argv()
+        except ImportError:
+            argv = sys.argv
+        if ('site=cDownload&function' not in argv[2]) and not (self.oPremiumHandler.isPremiumModeAvailable()):
             oDialog = dialog().VSok("Pas de streaming sans premium.\n" +
                                     "Pour voir le film passer par l'option 'Télécharger et Lire' du menu contextuel.")
             return False, False

@@ -783,9 +783,15 @@ def play__():  # Lancer les liens
         elif '.m3u' in sUrl:
             stype = 'HLS'
         if stype:
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                argv = Thread_argv.get_custom_argv()
+            except ImportError:
+                argv = sys.argv
             from F4mProxy import f4mProxyHelper
             f4mp=f4mProxyHelper()
-            xbmcplugin.endOfDirectory(int(sys.argv[1]), cacheToDisc=False)
+            xbmcplugin.endOfDirectory(int(argv[1]), cacheToDisc=False)
             f4mp.playF4mLink(sUrl, sTitle, proxy=None, use_proxy_for_chunks=False, maxbitrate=0, simpleDownloader=False, auth=None, streamtype=stype, setResolved=False, swf=None, callbackpath="", callbackparam="", iconImage=sThumbnail)
             return
 

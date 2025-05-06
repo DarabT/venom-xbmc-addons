@@ -25,11 +25,17 @@ import sys
 
 
 def get_cmd():
-    if not sys.argv:
+    try:
+        # specific vStreamIO
+        import addonPythonScript.Thread_argv as Thread_argv
+        argv = Thread_argv.get_custom_argv()
+    except ImportError:
+        argv = sys.argv
+    if not argv:
         return "librecaptcha"
-    if sys.argv[0].startswith("./"):
-        return sys.argv[0]
-    return os.path.basename(sys.argv[0])
+    if argv[0].startswith("./"):
+        return argv[0]
+    return os.path.basename(argv[0])
 
 
 CMD = get_cmd()
@@ -234,7 +240,13 @@ def run_or_exit(args):
 
 
 def main():
-    args = sys.argv[1:]
+    try:
+        # specific vStreamIO
+        import addonPythonScript.Thread_argv as Thread_argv
+        argv = Thread_argv.get_custom_argv()
+    except ImportError:
+        argv = sys.argv
+    args = argv[1:]
     parsed = ArgParser(args).parse()
     error = parsed.parse_error
 

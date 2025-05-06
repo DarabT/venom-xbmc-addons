@@ -36,7 +36,13 @@ class cClear:
     ADDON = addon()
 
     def __init__(self):
-        self.main(sys.argv[1])
+        try:
+            # specific vStreamIO
+            import addonPythonScript.Thread_argv as Thread_argv
+            argv = Thread_argv.get_custom_argv()
+        except ImportError:
+            argv = sys.argv
+        self.main(argv[1])
 
     def main(self, env):
 

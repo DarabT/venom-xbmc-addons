@@ -151,7 +151,12 @@ class cLibrary:
 
             if '.strm' in i:
                 sHosterUrl = sFile + '/' + i
-                addon_handle = int(sys.argv[1])
+                try:
+                    import addonPythonScript.Thread_argv as Thread_argv
+                    argv = Thread_argv.get_custom_argv()
+                except ImportError:
+                    argv = sys.argv
+                addon_handle = int(argv[1])
                 xbmcplugin.setContent(addon_handle, 'video')
                 li = xbmcgui.ListItem(sTitle)
                 xbmcplugin.addDirectoryItem(handle=addon_handle, url=sHosterUrl, listitem=li)

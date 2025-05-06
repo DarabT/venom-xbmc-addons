@@ -453,7 +453,14 @@ def WindowsBoxes(sTitle, siteUrl, metaType, year, sSite, sFav, sCat):
                 if xbmc.getCondVisibility('Window.IsVisible(home)'):
                     xbmc.executebuiltin('ActivateWindow(%d)' % 10028)
 
-                sTest = '%s?site=globalSearch&searchtext=%s&sCat=1' % (sys.argv[0], sTitle)
+                try:
+                    # specific vStreamIO
+                    import addonPythonScript.Thread_argv as Thread_argv
+                    argv = Thread_argv.get_custom_argv()
+                except ImportError:
+                    argv = sys.argv
+
+                sTest = '%s?site=globalSearch&searchtext=%s&sCat=1' % (argv[0], sTitle)
                 if idTmdb:
                     sTest += '&sTmdbId=%s' % idTmdb
                 xbmc.executebuiltin('Container.Update(%s)' % sTest)

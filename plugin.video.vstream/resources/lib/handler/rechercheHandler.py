@@ -18,13 +18,25 @@ class cRechercheHandler:
 
     def getPluginHandle(self):
         try:
-            return int(sys.argv[1])
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                argv = Thread_argv.get_custom_argv()
+            except ImportError:
+                argv = sys.argv
+            return int(argv[1])
         except:
             return 0
 
     def getPluginPath(self):
         try:
-            return sys.argv[0]
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                argv = Thread_argv.get_custom_argv()
+            except ImportError:
+                argv = sys.argv
+            return argv[0]
         except:
             return ''
 

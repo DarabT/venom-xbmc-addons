@@ -719,8 +719,14 @@ def ShowBA():
                 
                 import xbmcplugin
                 import sys
-                
-                __handle__ = int(sys.argv[1])
+                try:
+                    # specific vStreamIO
+                    import addonPythonScript.Thread_argv as Thread_argv
+                    argv = Thread_argv.get_custom_argv()
+                except ImportError:
+                    argv = sys.argv
+
+                __handle__ = int(argv[1])
                 #from resources.lib.handler.pluginHandler import cPluginHandler
                 #__handle__ = cPluginHandler().getPluginHandle()
 

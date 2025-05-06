@@ -76,12 +76,23 @@ class UpNext:
 
         try:
             # sauvegarde des parametres d'appel
-            oldParams = sys.argv[2]
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                argv = Thread_argv.get_custom_argv()
+            except ImportError:
+                argv = sys.argv
+            oldParams = argv[2]
 
             sHosterIdentifier, sMediaUrl, nextTitle, sDesc, sThumb = self.getMediaUrl(sSiteName, nextSaisonFunc, sParams, sSaison, nextEpisode, sLang, sRes, sRealHoster)
 
             # restauration des anciens params
-            sys.argv[2] = oldParams
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                Thread_argv.set_custom_argv_specif(2, oldParams)
+            except ImportError:
+                sys.argv[2] = oldParams
 
             # pas d'épisode suivant
             if not sMediaUrl:
@@ -176,7 +187,13 @@ class UpNext:
     def getMediaUrl(self, sSiteName, sFunction, sParams, sSaison, iEpisode, sLang, sRes, sHosterIdentifier, sTitle='', sDesc='', sThumb=''):
 
         try:
-            sys.argv[2] = '?%s' % sParams
+            try:
+                # specific vStreamIO
+                import addonPythonScript.Thread_argv as Thread_argv
+                Thread_argv.set_custom_argv_specif(2, '?%s' % sParams)
+            except ImportError:
+                sys.argv[2] = '?%s' % sParams
+
             plugins = __import__('resources.sites.%s' % sSiteName, fromlist=[sSiteName])
             function = getattr(plugins, sFunction)
             function()

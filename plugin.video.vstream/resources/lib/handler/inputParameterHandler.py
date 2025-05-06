@@ -9,8 +9,15 @@ from resources.lib.util import UnquotePlus, Unquote
 class cInputParameterHandler:
     def __init__(self):
         aParams = dict()
-        if len(sys.argv) >= 2 and len(sys.argv[2]) > 0:
-            args = sys.argv[2].replace(' & ', ' ')
+        try:
+            # specific vStreamIO
+            import addonPythonScript.Thread_argv as Thread_argv
+            argv = Thread_argv.get_custom_argv()
+        except ImportError:
+            argv = sys.argv
+
+        if len(argv) >= 2 and len(argv[2]) > 0:
+            args = argv[2].replace(' & ', ' ')
             aParams = dict(part.split('=') for part in args[1:].split('&'))
 
         self.__aParams = aParams
