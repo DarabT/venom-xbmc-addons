@@ -491,7 +491,7 @@ class cHosterGui:
                         oPlayer.AddSubtitles(aLink[2])
                     if sCat == '9999':
                         import xbmcplugin
-                        xbmcplugin.setFluxPlayer((oInputParameterHandler.getValue('sourceName'), sHosterIdentifier, sLang if sLang else 'Lang not found', sFileName, aLink[1]))
+                        xbmcplugin.setFluxPlayer((oInputParameterHandler.getValue('sourceName'), sHosterIdentifier, sLang if sLang else 'Lang= ???', sFileName, aLink[1]))
                         return True
                     else:
                         return oPlayer.run(oGuiElement, aLink[1])
