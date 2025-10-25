@@ -43,7 +43,7 @@ def showSearch():
 
     sSearchText = oGui.showKeyBoard()
     if sSearchText:
-        sUrl = URL_SEARCH[0] + sSearchText
+        sUrl = URL_SEARCH[0] + sSearchText.strip()
         showSeries(sUrl)
         oGui.setEndOfDirectory()
         return
@@ -200,7 +200,7 @@ def addEpisode(sUrl, sMovieTitle):
         sHtmlContent = oRequestHandler.request()
     except:
         return
-    
+
     oGui = cGui()
     oParser = cParser()
 
@@ -208,8 +208,7 @@ def addEpisode(sUrl, sMovieTitle):
     sSaison = data[-2]
     sLang = data[-1].upper()
 
-    sPattern = '<script type="text/javascript" src=\'([^\']+)\'defer></script>'
-
+    sPattern = '<script type="text/javascript" src=[\'"]([^\'"]+)[\'"] *defer'
     aResult = oParser.parse(sHtmlContent, sPattern)
     if aResult[0]:
 

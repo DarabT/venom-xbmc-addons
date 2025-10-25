@@ -230,7 +230,7 @@ class cHosterGui:
                     return self.getHoster("lien_direct")
 
         supported_player = ['streamz', 'streamax', 'gounlimited', 'xdrive', 'facebook', 'mixdrop', 'mixloads', 'vidoza',
-                            'rutube', 'megawatch', 'vidzi', 'filetrip', 'speedvid', 'letsupload', 'fsvid',
+                            'rutube', 'megawatch', 'vidzi', 'filetrip', 'speedvid', 'letsupload', 'fsvid', 'sendvid',
                             'onevideo', 'playreplay', 'vimeo', 'prostream', 'vidfast', 'uqload', 'letwatch', 'mail.ru',
                             'filepup', 'vimple', 'wstream', 'watchvideo', 'vidwatch', 'up2stream', 'tune', 'playtube',
                             'vidup', 'vidbull', 'vidlox', 'megaup', '33player' 'easyload', 'ninjastream', 'cloudhost',
@@ -239,7 +239,7 @@ class cHosterGui:
                             'jawcloud', 'kvid', 'soundcloud', 'mixcloud', 'ddlfr', 'vupload', 'dwfull', 'vidzstore',
                             'pdj', 'rapidstream', 'archive', 'dustreaming', 'viki', 'flix555', 'onlystream', 'filemoon',
                             'upstream', 'pstream', 'vudeo', 'vidia', 'streamtape', 'vidbem', 'uplea', 'vido', 'vidmoly',
-                            'sibnet', 'vidplayer', 'userload', 'aparat', 'evoload', 'vidshar', 'abcvideo', 'plynow',
+                            'sibnet', 'vidplayer', 'userload', 'aparat', 'evoload', 'vidshar', 'abcvideo', 'plynow', 'smoothpre',
                             'tomacloud', 'myvi', 'videovard', 'viewsb', 'yourvid', 'vf-manga', 'darkibox', 'mustardshock']
 
 # désactivé 'uptostream', 'uptobox'
@@ -271,7 +271,7 @@ class cHosterGui:
         if ('vidguard' in sHostName) or ('fertoto' in sHostName) or ('vgembed' in sHostName) or ('vgfplay' in sHostName) or ('jetload' in sHostName):
             return self.getHoster('vidguard')
 
-        if ('filelions' in sHostName) or ('shoooot' in sHostName) or ('vidhide' in sHostName) or ('nejma' in sHostName):
+        if ('filelions' in sHostName) or ('shoooot' in sHostName) or ('vidhide' in sHostName) or ('nejma' in sHostName) or ('earnvids' in sHostName):
             return self.getHoster('filelions')
 
         if ('playvidto' in sHostName):
@@ -358,7 +358,7 @@ class cHosterGui:
  
         if sHostName.replace('o','').replace('0','').replace('stream','').split('.')[0] == 'dd':
             return self.getHoster('dood')
-        if ('ds2play' in sHostName) or ('ds2video' in sHostName) or ('dooodster' in sHostName) or ('vidply' in sHostName):
+        if ('dsvplay' in sHostName) or ('ds2play' in sHostName) or ('ds2video' in sHostName) or ('dooodster' in sHostName) or ('vidply' in sHostName):
             return self.getHoster('dood')
 
         if ('voe' in sHostName) or ('jamessoundcost' in sHostName) or ('magasavor' in sHostName)  or ('sandratableother' in sHostName) or ('alejandrocenturyoil' in sHostName):
@@ -376,7 +376,7 @@ class cHosterGui:
 
         # frenchvid et clone
         val = next((x for x in ['french-vid', 'yggseries', 'fembed', 'fem.tohds', 'feurl', 'fsimg', 'core1player',
-                                'vfsplayer', 'gotochus', 'sendvid', 'femax'] if x in sHostName), None)
+                                'vfsplayer', 'gotochus', 'femax'] if x in sHostName), None)
         if val:
             return self.getHoster("frenchvid")
 
@@ -396,7 +396,7 @@ class cHosterGui:
             return self.getHoster('lien_direct')
 
         # Si on a rien trouvé mais que le lien semble valide (ex: /e/ dans l'URL)
-        if "/e/" in fullURL:
+        if ("/e/" in fullURL) or ("/v/" in fullURL):
             try:
                 from resources.lib.handler.requestHandler import cRequestHandler
                 oRequest = cRequestHandler(fullURL)
@@ -408,6 +408,10 @@ class cHosterGui:
                     sHosterUrl2 = 'https://voe.com/%s' % (fullURL.split('/e/', 1)[1])
                 elif 'filemoon' in html or 'filmoon' in html:
                     sHosterUrl2 = 'https://filemoon.com/%s' % (fullURL.split('/e/', 1)[1])
+                elif 'vidhide' in html:
+                    sHosterUrl2 = 'https://earnvids.com/%s' % (fullURL.split('/v/', 1)[1])
+                elif 'guardstorage' in html:
+                    sHosterUrl2 = 'https://vidguard.com/%s' % (fullURL.split('/e/', 1)[1])
                 elif 'Redirecting...' in html:
                     urlMatch = re.search(r"window\.location\.href\s*=\s*'([^']+)", html)
                     if urlMatch:
