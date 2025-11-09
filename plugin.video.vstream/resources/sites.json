@@ -17,7 +17,7 @@
         "animesama": {
             "label": "Anime Sama",
             "active": "True",
-            "url": "https://anime-sama.fr/"
+            "url": "https://anime-sama.org/"
         },
         "animeultime": {
             "label": "Anime Ultime",
@@ -59,7 +59,7 @@
         "coflix": {
             "label": "Coflix",
             "active": "True",
-            "url": "https://coflix.boo/"
+            "url": "https://coflix.art/"
         },
         "cpasmieux": {
             "label": "Cpasmieux",
@@ -180,7 +180,7 @@
         "ianime": {
             "label": "Ianime",
             "active": "True",
-            "cloudflare": "True",
+            "cloudflare": "False",
             "url": "https://www.ianimes.one/"
         },
         "illimitestreaming": {
@@ -207,7 +207,7 @@
         "livetv": {
             "label": "Live TV",
             "active": "True",
-            "url": "https://livetv868.me/"
+            "url": "https://livetv869.me/"
         },
         "monstream": {
             "label": "Mon Stream",
@@ -344,7 +344,7 @@
             "active": "True",
             "cloudflare": "False",
             "site_info": "https://www.wiflix-nouvelle-adresse.site/",
-            "url": "https://flemmix.mom/"
+            "url": "https://flemmix.cam/"
         },
         "wilifilm": {
             "label": "Wilifilm",
