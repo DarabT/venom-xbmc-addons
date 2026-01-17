@@ -132,18 +132,20 @@ def showMovies(sSearch=''):
         a, sSearchText = sUrl.split('&story=')
         sUrl = sUrl.replace(' ', '%20')
         bShow = catSearch == 'Serie'
+        # url img title cat
+        sPattern = 'th-img img-resp-v" href="([^"]+).+?<img src="([^"]+).+?alt="([^"]+)" \/> <span class="th-([^"]+)'
     else:
         oInputParameterHandler = cInputParameterHandler()
         sUrl = oInputParameterHandler.getValue('siteUrl')
         bShow = SERIE_SERIES[0] in sUrl
+        # url img title
+        sPattern = 'th-img img-resp-v" href="([^"]+).+?data-src="([^"]+).+?alt="([^"]+)" \/> '
 
     if not 'http' in sUrl:
         sUrl = URL_MAIN + sUrl
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
 
-    # url img title cat
-    sPattern = 'th-img img-resp-v" href="([^"]+).+?<img src="([^"]+).+?alt="([^"]+)" \/> <span class="th-([^"]+)'
     aResult = oParser.parse(sHtmlContent, sPattern)
 
     # en cas de recherche vide, deuxieme tentative avec le mot le plus long
@@ -163,7 +165,6 @@ def showMovies(sSearch=''):
             sUrl = aEntry[0]
             sThumb = aEntry[1]
             sTitle = aEntry[2]
-            sCat = aEntry[3]
 
             # tri des doublons
             cleanTitle = oUtil.CleanName(sTitle).replace(' ', '')
@@ -177,6 +178,7 @@ def showMovies(sSearch=''):
 
             # filtre search
             if sSearch:
+                sCat = aEntry[3]
                 if sCat != catSearch:
                     continue
                 if not oUtil.CheckOccurence(sSearchText, sTitle):
@@ -281,7 +283,7 @@ def showEpisodes():
             sUrl = aEntry[0]
             sTitle = "%s %s" % (sMovieTitle, aEntry[1])
             oOutputParameterHandler.addParameter('siteUrl', sUrl)
-            oOutputParameterHandler.addParameter('sMovieTitle', aEntry[1])
+            oOutputParameterHandler.addParameter('sMovieTitle', sTitle)
             oOutputParameterHandler.addParameter('sThumb', sThumb)
             oOutputParameterHandler.addParameter('sDesc', sDesc)
             oOutputParameterHandler.addParameter('sYear', sYear)
@@ -334,7 +336,7 @@ def showMovieLinks():
             oOutputParameterHandler.addParameter('referer', sUrl)
             oOutputParameterHandler.addParameter('cook', cook)
             oOutputParameterHandler.addParameter('postdata', postData)
-            oGui.addMovie(SITE_IDENTIFIER, 'showMovieHosters', sDisplayTitle, '', sThumb, sDesc, oOutputParameterHandler)
+            oGui.addLink(SITE_IDENTIFIER, 'showHosters', sDisplayTitle, sThumb, sDesc, oOutputParameterHandler)
             
     oGui.setEndOfDirectory()
 
@@ -383,12 +385,12 @@ def showSerieLinks():
             oOutputParameterHandler.addParameter('referer', sUrl)
             oOutputParameterHandler.addParameter('cook', cook)
             oOutputParameterHandler.addParameter('postdata', postData)
-            oGui.addMovie(SITE_IDENTIFIER, 'showMovieHosters', sDisplayTitle, '', sThumb, sDesc, oOutputParameterHandler)
+            oGui.addLink(SITE_IDENTIFIER, 'showHosters', sDisplayTitle, sThumb, sDesc, oOutputParameterHandler)
             
     oGui.setEndOfDirectory()
 
 
-def showMovieHosters():
+def showHosters():
     oGui = cGui()
     oInputParameterHandler = cInputParameterHandler()
     sUrl = oInputParameterHandler.getValue('siteUrl')

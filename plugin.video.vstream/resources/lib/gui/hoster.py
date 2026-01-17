@@ -45,6 +45,8 @@ class cHosterGui:
 
         oGuiElement = cGuiElement()
         oGuiElement.setSiteName(self.SITE_NAME)
+        if sSeason : oGuiElement.setSeason(sSeason)
+        if sEpisode : oGuiElement.setEpisode(sEpisode)
         oGuiElement.setFunction('play')
         # oGuiElement.setMetaAddon(False)     # pas de gestion des metadata pour ce type de liens
 
@@ -367,8 +369,8 @@ class cHosterGui:
             return self.getHoster('allow_redirects')
 
         # le catptcha ne fonctionne pas
-        # if ('netu' in sHostName) or ('waaw' in sHostName) or ('hqq' in sHostName) or ('doplay' in sHostName) or ('vizplay' in sHostName) or ('netzues' in sHostName):
-        #     return self.getHoster('netu')
+        if ('netu' in sHostName) or ('waaw' in sHostName) or ('hqq' in sHostName) or ('doplay' in sHostName) or ('vizplay' in sHostName) or ('netzues' in sHostName):
+            return self.getHoster('netu')
 
         if ('tapepops' in sHostName):
             return self.getHoster('streamtape')
@@ -493,8 +495,8 @@ class cHosterGui:
                     oGuiElement.setMeta(sMeta)
                     oGuiElement.setTitle(sTitle)
                     oGuiElement.setTmdbId(sTmdbId)
-                    if not sTmdbId:
-                        oGuiElement.getInfoLabel()  # récupération manuelle des infos
+#                    if not sTmdbId:
+                    oGuiElement.getInfoLabel()  # récupération manuelle des infos
 
                     from resources.lib.player import cPlayer
                     oPlayer = cPlayer()
