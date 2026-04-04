@@ -17,7 +17,7 @@
         "animesama": {
             "label": "Anime Sama",
             "active": "True",
-            "url": "https://anime-sama.tv/"
+            "url": "https://anime-sama.to/"
         },
         "animeultime": {
             "label": "Anime Ultime",
@@ -28,7 +28,7 @@
             "label": "Animes Ultra",
             "active": "True",
             "cloudflare": "False",
-            "url": "https://animesultra.org/"
+            "url": "https://ww.animesultra.org/"
         },
         "bd_streams": {
             "label": "BD STREAMS",
@@ -59,12 +59,12 @@
         "cloudproxy": {
             "label": "Proxy cloudflare",
             "active": "True",
-            "url": "https://corsproxy.io/?url="
+            "url": "https://corsproxy.io/?key=webdemo1&url="
         },
         "coflix": {
             "label": "Coflix",
             "active": "True",
-            "url": "https://coflix.nexus/"
+            "url": "https://coflix.wales/"
         },
         "cpasmal": {
             "label": "CpasMal",
@@ -84,7 +84,7 @@
         "darkiworld": {
             "label": "darkiworld",
             "active": "True",
-            "url": "https://darkiworld15.com/"
+            "url": "https://darkiworld16.com/"
         },
         "debrid_link": {
             "label": "Debrid Link",
@@ -93,8 +93,13 @@
         },
         "direct_stream": {
             "label": "direct-streamfr",
-            "active": "True",
+            "active": "False",
             "url": "https://play.frembed.sbs/"
+        },
+        "witv": {
+            "label": "wiTV",
+            "active": "True",
+            "url": "https://witv.team/"
         },
         "dnspython": {
             "label": "DNS Python",
@@ -114,7 +119,7 @@
         "dulourd": {
             "label": "DuLourd",
             "active": "True",
-            "url": "https://www.dulourd.boo/"
+            "url": "https://www.dulourd.cash/"
         },
         "elitegol": {
             "label": "Elitegol",
@@ -164,7 +169,7 @@
             "label": "French-stream",
             "active": "True",
             "site_info": "https://fstream.info/",
-            "url": "https://fs2.lol/"
+            "url": "https://fs18.lol/"
         },
         "french_stream_lol": {
             "label": "French-stream-lol",
@@ -189,7 +194,7 @@
         },
         "ianime": {
             "label": "Ianime",
-            "active": "True",
+            "active": "False",
             "cloudflare": "False",
             "url": "https://www.ianimes.one/"
         },
@@ -217,7 +222,7 @@
         "livetv": {
             "label": "Live TV",
             "active": "True",
-            "url": "https://livetv872.me/"
+            "url": "https://livetv873.me/"
         },
         "monstream": {
             "label": "Mon Stream",
@@ -232,8 +237,13 @@
         },
         "neymartv": {
             "label": "NeymarTV",
-            "active": "True",
+            "active": "False",
             "url": "https://v1.messitv.net/"
+        },
+        "netu": {
+            "label": "Hoster NETU",
+            "active": "True",
+            "url": "https://waaw.to/"
         },
         "o1streaming": {
             "label": "O1 streaming",
@@ -303,7 +313,7 @@
         },
         "toonanime": {
             "label": "Toonanime",
-            "active": "True",
+            "active": "False",
             "url": "https://toonanimetv.com/"
         },
         "topimdb": {
@@ -313,9 +323,9 @@
         },
         "topstream": {
             "label": "top-stream",
-            "active": "True",
+            "active": "False",
             "cloudflare": "False",
-            "url": "https://top-stream.sbs/"
+            "url": "https://top-stream.wiki/"
         },
         "vfilms": {
             "label": "VFilms",
@@ -354,7 +364,7 @@
             "active": "True",
             "cloudflare": "False",
             "site_info": "https://www.wiflix-nouvelle-adresse.site/",
-            "url": "https://flemmix.art/"
+            "url": "https://flemmix.golf/"
         },
         "wilifilm": {
             "label": "Wilifilm",
